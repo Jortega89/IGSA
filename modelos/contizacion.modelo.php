@@ -61,4 +61,15 @@ class mdlcotiza{
         return $stmt -> fetchAll();
 
     }
+
+    static public function mdlSubFamilia($id){
+
+
+        $stmt = Conexion::conectar()->prepare("SELECT `idServicio`, `nombreServicio`,`precio` FROM `servicios` WHERE `idServicio` = :id");
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt -> execute();
+
+        return $stmt -> fetchAll();
+
+    }
 }

@@ -37,5 +37,14 @@ class ctrcotiza{
 
         }
 
+    static public function ctrSubFamilia(){
+
+        $respuesta = mdlcotiza::mdlSubFamilia($id);
+
+        return $respuesta;
+
+
+    }
+
 
 }

@@ -164,6 +164,28 @@ CUERPO DOCUMENTO
 <script src="vistas/js/plantilla.js"></script>
 <script src="vistas/js/usuarios.js"></script>
 <script src="vistas/js/categorias.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function(){
+          $('#familia').val(1);
+          recargarLista();
+
+          $('#familia').change(function(){
+              recargarLista();
+          });
+      })
+  </script>
+  <script type="text/javascript">
+      function recargarLista(){
+          $.ajax({
+              type:"POST",
+              url:"ajax/servicios.ajax.php",
+              data:"continente=" + $('#familia').val(),
+              success:function(r){
+                  $('#listaservicios').html(r);
+              }
+          });
+      }
+  </script>
 
 </body>
 </html>
